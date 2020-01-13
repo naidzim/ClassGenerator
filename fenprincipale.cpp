@@ -100,6 +100,17 @@ void FenPrincipale::genererCode()
 
     // generation du code a partir des infos saisies
 
+    if ( !(auteur->text().isEmpty()) ||  ! (role->toPlainText().isEmpty()) )
+    {
+        code +="/* \nAuteur : ";
+        code += auteur->text();
+        code += "\nDate de création : ";
+        code += date->date().toString();
+        code +="\nRole: \n";
+        code += role->toPlainText();
+        code +="\n*/ \n\n\n";
+    }
+
     if (protection->isChecked())
     {
         code += "#ifndef ";
